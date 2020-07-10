@@ -1,0 +1,7 @@
+{
+  "name": "phacility/libphutil",
+  "type": "library",
+  "description": "A collection of utility classes and functions for PHP.",
+  "homepage": "http://secure.phabricator.com/diffusion/PHU",
+  "license": "Apache-2.0"
+}

@@ -11,10 +11,10 @@ return [
     'App.uriPrefix' => '/',
 
     //DB.* are the params for PDO::__construct, @see http://php.net/manual/en/pdo.construct.php
-    'DB.connection'=> 'mysql:dbname=phpboot-example;host=127.0.0.1',
-    'DB.username'=> 'root',
-    'DB.password'=> 'root',
-    'DB.options' => [],
+//    'DB.connection'=> 'mysql:dbname=phpboot-example;host=127.0.0.1',
+//    'DB.username'=> 'root',
+//    'DB.password'=> 'root',
+//    'DB.options' => [],
 
     /************************************************************************************
     如果要将系统缓存改成文件方式, 取消下面的注释。默认系统缓存是 APC
@@ -56,9 +56,9 @@ return [
     \PhpBoot\Controller\ExceptionRenderer::class =>
         \DI\object(\App\Utils\ExceptionRenderer::class),
 
-    \App\Hooks\BasicAuth::class => \DI\object()
-            ->property('username', 'test')
-            ->property('password', 'test'),
+//    \App\Hooks\BasicAuth::class => \DI\object()
+//            ->property('username', 'test')
+//            ->property('password', 'test'),
 
     \App\Interfaces\BooksInterface::class => \DI\object(\PhpBoot\RPC\RpcProxy::class)
         ->constructorParameter('interface', \App\Interfaces\BooksInterface::class)
