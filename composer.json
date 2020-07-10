@@ -10,8 +10,7 @@
   "license": "MIT",
   "require": {
     "php": ">=5.5.9",
-    "caoym/phpboot": "dev-master",
-    "phacility/libphutil": "*@dev"
+    "caoym/phpboot": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0"
