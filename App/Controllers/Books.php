@@ -2,15 +2,9 @@
 
 namespace App\Controllers;
 
-include __DIR__.'/vendor/phutil/__phutil_library_init__.php';
-
-use App\Entities\Book;
-use Doctrine\Common\Cache\RedisCache;
-use PhpBoot\DB\DB;
+use App\Service\PhabricatorService;
 use PhpBoot\DI\Traits\EnableDIAnnotations;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * 图书管理
@@ -26,6 +20,12 @@ class Books
     //启用通过@inject标记注入依赖
 
     /**
+     * @inject
+     * @var LoggerInterface
+     */
+    public $logger;
+
+    /**
      * @param LoggerInterface $logger 通过依赖注入传入
      */
     public function __construct(LoggerInterface $logger)
@@ -34,21 +34,17 @@ class Books
     }
 
     /**
-     * 查找图书
+     * 编辑
      *
-     * @route GET /
+     * @route GET /commitEdit
      *
+     * @param $api_token
+     * @param $queryKey
      * @return string
-     * @throws BadRequestHttpException 参数错误
      */
-    public function findBooks()
+    public function commitEdit($api_token, $queryKey)
     {
-        return "mybooks";
+        $phabricatorService = new PhabricatorService();
+        return $phabricatorService->diffusionCommitEdit($api_token, $queryKey);
     }
-
-    /**
-     * @inject
-     * @var LoggerInterface
-     */
-    public $logger;
 }
