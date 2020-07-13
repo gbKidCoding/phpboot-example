@@ -11,7 +11,7 @@ use Psr\Log\LoggerInterface;
  *
  * 这是一个示例, 通过实现一套简单的图书管理接口, 展示 PhpBoot 框架的使用方式。
  *
- * @path /books
+ * @path /api
  */
 class Books
 {
@@ -36,7 +36,7 @@ class Books
     /**
      * 编辑
      *
-     * @route GET /commitEdit
+     * @route GET /phabricator/autoCommit
      *
      * @param $api_token
      * @param $queryKey
